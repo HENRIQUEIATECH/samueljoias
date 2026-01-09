@@ -28,7 +28,6 @@
             overflow-x: hidden;
         }
 
-        /* Header e Menu */
         header {
             display: flex;
             flex-direction: column;
@@ -85,7 +84,6 @@
 
         nav ul li a:hover { color: var(--ouro); }
 
-        /* Ícone Carrinho */
         .cart-icon-container {
             position: relative;
             cursor: pointer;
@@ -106,7 +104,6 @@
             font-weight: bold;
         }
 
-        /* Carrinho Lateral (Drawer) */
         .cart-drawer {
             position: fixed;
             top: 0;
@@ -170,7 +167,6 @@
 
         .btn-finalize:hover { background: #1ebe57; }
 
-        /* Seções Gerais */
         .filete-header { height: 2px; background: linear-gradient(to right, transparent, var(--ouro), transparent); width: 100%; }
         
         .hero {
@@ -193,20 +189,19 @@
 
         .produtos-container { padding: 20px 8% 80px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
 
-        /* Card de Produto Corrigido */
         .card-produto { 
             background: var(--branco); 
             border: 1px solid #eaeaea; 
             padding: 30px; 
             text-align: center; 
             transition: 0.4s;
-            overflow: hidden; /* Garante que a imagem não saia do card */
+            overflow: hidden;
             position: relative;
         }
 
         .card-produto:hover { border-color: var(--ouro); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
 
-        .card-produto h3 { position: relative; z-index: 10; margin-bottom: 15px; background: white; padding: 5px; }
+        .card-produto h3 { margin-bottom: 15px; background: white; padding: 5px; font-size: 1.2rem; }
 
         .moldura-foto { 
             overflow: hidden; 
@@ -217,7 +212,7 @@
 
         .card-produto img { 
             width: 100%; 
-            height: 420px; /* Dimensão mais comprida */
+            height: 420px; 
             object-fit: cover; 
             transition: 0.8s; 
             display: block;
@@ -225,17 +220,23 @@
 
         .card-produto:hover img { transform: scale(1.1) rotate(1.5deg); }
 
-        .preco { position: relative; z-index: 10; color: var(--ouro-escuro); font-size: 1.8rem; font-weight: bold; margin: 20px 0; display: block; background: white; }
+        .descricao-joia {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 10px 0;
+            font-style: italic;
+            min-height: 45px;
+        }
 
-        .btn-comprar { position: relative; z-index: 10; background-color: var(--preto-luxo); color: var(--ouro); text-decoration: none; padding: 14px 40px; border: 1px solid var(--ouro); font-weight: bold; text-transform: uppercase; transition: 0.3s; cursor: pointer; }
+        .preco { color: var(--ouro-escuro); font-size: 1.6rem; font-weight: bold; margin: 15px 0; display: block; }
+
+        .btn-comprar { background-color: var(--preto-luxo); color: var(--ouro); text-decoration: none; padding: 14px 40px; border: 1px solid var(--ouro); font-weight: bold; text-transform: uppercase; transition: 0.3s; cursor: pointer; }
+        .btn-comprar:hover { background-color: var(--ouro); color: white; }
 
         .secao-historia { background-color: var(--cinza-suave); padding: 100px 15%; text-align: center; border-top: 1px solid #eee; }
 
-        .historia-texto { font-size: 1.2rem; font-style: italic; color: #444; line-height: 2; }
-
         .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px; background-color: var(--whatsapp-color); color: #FFF; border-radius: 50px; text-align: center; z-index: 1000; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); }
 
-        /* Footer */
         footer { background: #111; color: #fff; padding: 80px 8% 40px; text-align: center; }
         .footer-logo-png { height: 60px; margin-bottom: 20px; }
         .footer-divider { height: 1px; background: rgba(255,255,255,0.1); margin: 30px 0; }
@@ -273,7 +274,6 @@
                     <li><a href="#historia">História</a></li>
                     <li><a href="#vitrine">Jóias</a></li>
                     <li><a href="#contato">Contato</a></li>
-                    <li><a href="https://wa.me/556492907218" target="_blank">WhatsApp</a></li>
                 </ul>
                 <button class="cart-icon-container" onclick="toggleCart()">
                     <svg width="25" height="25" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
@@ -297,14 +297,15 @@
         <section class="secao-historia" id="historia">
             <div class="historia-container">
                 <h2>História</h2>
-                <div class="historia-texto">
-                    A Samuel Ouro em Jóias nasceu na alegria de ver e ter o belo, e com garantia de trabalhar com os melhores materiais e ouro puro, com designs exclusivos e artistas na produção e confecção de verdadeiras joias raras... para melhor atender seus sonhos.<br><br>
+                <div class="historia-texto" style="font-size: 1.2rem; font-style: italic; color: #444; line-height: 2;">
+                     A Samuel Ouro em Jóias nasceu na alegria de ver e ter o belo, e com garantia de trabalhar com os melhores materiais e ouro puro, com designs exclusivos e artistas na produção e confecção de verdadeiras joias raras... para melhor atender seus sonhos.<br><br>
                     <h4>Nossa Essência</h4>
                     <p>
                         "Na <strong>Samuel Ouro em Jóias</strong>, acreditamos que cada peça conta uma história. 
                         Trabalhamos exclusivamente com <strong>ouro puro</strong> de procedência garantida, unindo um 
                         excelente design a um acabamento artesanal impecável."
                     </p>
+                    <p>"Trabalhamos exclusivamente com ouro puro de procedência garantida."</p>
                 </div>
             </div>
         </section>
@@ -333,17 +334,17 @@
         const whatsappNumber = "556492907218"; 
         let cart = [];
 
+        // Adicionado campo 'descricao' para cada joia
         const produtos = [
-            { id: 1, titulo: "Pulseira Elo Português", preco: 15600.00, imagem: "IMG_8912.jpg" },
-            { id: 2, titulo: "Anel Solitário", preco: 1290.00, imagem: "IMG_4126.jpg" },
-            { id: 3, titulo: "Corrente Elo Infinito", preco: 12360.00, imagem: "IMG_4141.jpg" },
-            // Novos 6 conteiners adicionados abaixo:
-            { id: 4, titulo: "Bracelete", preco: 34400.00, imagem: "DSC01344-Editar.png" },
-            { id: 5, titulo: "Brincos de Ouro", preco: 2690.00, imagem: "IMG_4119.jpg" },
-            { id: 6, titulo: "Pulseira Elo Português", preco: 4000.00, imagem: "IMG_4130.jpg" },
-            { id: 7, titulo: "Anel Formatura", preco: 7200.00, imagem: "IMG_4131.jpg" },
-            { id: 8, titulo: "Brincos em Ouro", preco: 1780.00, imagem: "IMG_4117.jpg" },
-            { id: 9, titulo: "Anel em Ouro", preco: 2690.00, imagem: "IMG_4128.jpg" }
+            { id: 1, titulo: "Pulseira Elo Português", preco: 15600.00, imagem: "IMG_8912.jpg", descricao: "Ouro 18k com acabamento artesanal. 20 cm comprimento, 7 milímetros largura, aproximadamente 15,6 gramas" },
+            { id: 2, titulo: "Anel Solitário", preco: 1290.00, imagem: "IMG_4126.jpg", descricao: "Clássico e eterno, ideal para noivados. Pedra zircônia, aproximadamente 1.2 gramas." },
+            { id: 3, titulo: "Corrente Elo Infinito", preco: 12360.00, imagem: "IMG_4141.jpg", descricao: "Design exclusivo com elos reforçados. 45 cm comprimento, 9 mm largura, aproximadamente 12.36 gramas" },
+            { id: 4, titulo: "Bracelete", preco: 34400.00, imagem: "DSC01344-Editar.png", descricao: "Peça maciça de alto luxo e presença.19,5 cm comprimento, 10 mm largura, aproximadamente 34,4 gramas" },
+            { id: 5, titulo: "Brincos de Ouro", preco: 2690.00, imagem: "IMG_4119.jpg", descricao: "Leveza e brilho para o dia a dia. Símbolo de conquista em ouro puro. Vendidos valor por peça" },
+            { id: 6, titulo: "Pulseira Elo Português", preco: 4000.00, imagem: "IMG_4130.jpg", descricao: "Versão delicada do elo tradicional. 17,5 cm comprimento, 4 mm largura, aproximadamente 4 gramas" },
+            { id: 7, titulo: "Anel Formatura", preco: 7200.00, imagem: "IMG_4131.jpg", descricao: "Anel formatura, tamanho ajustável, pedras zircônia, aproximadamente 7,2 gramas" },
+            { id: 8, titulo: "Brincos em Ouro", preco: 1780.00, imagem: "IMG_4117.jpg", descricao: "Elegância discreta e atemporal. Símbolo de conquista em ouro puro. Vendidos valor por peça" },
+            { id: 9, titulo: "Anel em Ouro", preco: 2690.00, imagem: "IMG_4128.jpg", descricao: "Trabalhado à mão com detalhes únicos. Tamanho ajustável, pedras zircônia, aproximadamente 2.6 gramas" }
         ];
 
         function renderizarLoja() {
@@ -352,6 +353,7 @@
                 <div class="card-produto">
                     <h3>${p.titulo}</h3>
                     <div class="moldura-foto"><img src="${p.imagem}" alt="${p.titulo}"></div>
+                    <p class="descricao-joia">${p.descricao}</p>
                     <span class="preco">R$ ${p.preco.toLocaleString('pt-br', {minimumFractionDigits: 2})}</span>
                     <button class="btn-comprar" onclick="addToCart(${p.id})">Adicionar ao Carrinho</button>
                 </div>
@@ -378,9 +380,7 @@
             const cartItems = document.getElementById('cart-items');
             const cartCount = document.getElementById('cart-count');
             const cartTotal = document.getElementById('cart-total');
-            
             cartCount.innerText = cart.length;
-            
             cartItems.innerHTML = cart.map((item, index) => `
                 <div class="cart-item">
                     <span>${item.titulo}</span>
@@ -388,22 +388,18 @@
                     <button onclick="removeFromCart(${index})" style="color:red; border:none; background:none; cursor:pointer; margin-left:10px;">&times;</button></span>
                 </div>
             `).join('');
-
             const total = cart.reduce((acc, curr) => acc + curr.preco, 0);
             cartTotal.innerText = `Total: R$ ${total.toLocaleString('pt-br', {minimumFractionDigits: 2})}`;
         }
 
         function enviarPedido() {
             if (cart.length === 0) return alert("Seu carrinho está vazio!");
-            
             let mensagem = "Olá Samuel! Tenho interesse nas seguintes jóias:\n\n";
             cart.forEach(item => {
                 mensagem += `- ${item.titulo} (R$ ${item.preco.toLocaleString('pt-br', {minimumFractionDigits: 2})})\n`;
             });
-            
             const total = cart.reduce((acc, curr) => acc + curr.preco, 0);
             mensagem += `\n*Total: R$ ${total.toLocaleString('pt-br', {minimumFractionDigits: 2})}*`;
-            
             const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(mensagem)}`;
             window.open(url, '_blank');
         }
